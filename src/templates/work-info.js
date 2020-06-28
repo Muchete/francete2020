@@ -4,18 +4,18 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 import { Link } from "gatsby-plugin-modal-routing";
 import Layout from "../components/layout";
 
-const About = ({ data: { about } }) => (
+export default ({ data }) => (
   <Layout>
-    <HelmetDatoCms seo={about.seoMetaTags} />
-    <div className="modal">
+    <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
+    <div className="modal modal__info">
       <div className="modal__content">
-        <Link to="/" className="modal__close">
+        <Link to={"/works/" + data.datoCmsWork.slug} className="modal__close">
           X
         </Link>
         <div
           className="modal__text"
           dangerouslySetInnerHTML={{
-            __html: about.bioNode.childMarkdownRemark.html,
+            __html: data.datoCmsWork.descriptionNode.childMarkdownRemark.html,
           }}
         />
       </div>
@@ -23,16 +23,14 @@ const About = ({ data: { about } }) => (
   </Layout>
 );
 
-export default About;
-
 export const query = graphql`
-  query AboutQuery {
-    about: datoCmsAboutPage {
+  query workInfo($slug: String!) {
+    datoCmsWork(slug: { eq: $slug }) {
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
-      title
-      bioNode {
+      slug
+      descriptionNode {
         childMarkdownRemark {
           html
         }

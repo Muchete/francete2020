@@ -1,0 +1,82 @@
+/**
+ * -----------------------------------------------------------------------
+ * typo
+ * -----------------------------------------------------------------------
+ *
+ * Place all typography settings in here.
+ * It is best to create a mixin for each typography «look», including font-size, weight etc.
+ *
+ * CAUTION:
+ * - Do not put any content output here. Only Sass Variables, Functions, Mixins, no classes!
+ *
+ * TIPS:
+ * - Avoid spacings like margins and paddings here
+ */
+
+// Base typographical styles and baseline grid. You need to define these values
+// in pixels: we will convert them to more appropriate units.
+$global-font-size: 17px;
+$global-line-height: 20px;
+
+// Font Families
+$font-default: Gt-Haptik-Bold, Helvetica, Arial, sans-serif;
+$font-heading: Gt-Haptik-Bold, Helvetica, Arial, sans-serif;
+
+// Example Typography definitions
+@mixin typo-small() {
+  @include font-size(14px, $line-height: 1.25);
+  @include resp(
+    font-size,
+    (
+      phone: 17px,
+      phone-plus: 17px,
+      tablet: 17px,
+      desktop: 19px,
+    )
+  );
+  font-family: $font-default;
+}
+
+@mixin typo-body() {
+  @include font-size($global-font-size, $line-height: $global-line-height);
+  @include resp(
+    font-size,
+    (
+      phone: 17px,
+      desktop: 25px,
+    )
+  );
+  font-family: $font-default;
+  font-feature-settings: "tnum" on, "lnum" on, "salt" on;
+}
+
+@mixin typo-modal() {
+  // Fluid font size
+  @include resp(
+    font-size,
+    (
+      phone: 17px,
+      desktop: 35px,
+    )
+  );
+  @include resp(
+    line-height,
+    (
+      phone: 20px,
+      desktop: 40px,
+    )
+  );
+
+  font-family: $font-default;
+  font-feature-settings: "tnum" on, "lnum" on, "salt" on;
+}
+
+@mixin typo-heading() {
+  @include font-size(19px, $line-height: 1.1);
+  font-family: $font-heading;
+  letter-spacing: -0.01em;
+  font-weight: normal;
+  @include mq($from: tablet) {
+    @include font-size(21px, $line-height: 1.1);
+  }
+}

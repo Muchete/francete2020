@@ -1,0 +1,26 @@
+/**
+ * -----------------------------------------------------------------------
+ * webfonts
+ * -----------------------------------------------------------------------
+ *
+ * Load external webfonts.
+ * Avoid google fonts if possible, due to privacy concerns
+ */
+
+// @include font-face(MuseoSans100, "/build/fonts/museosans/museosans_100-webfont");
+
+@font-face {
+  font-family: "GT-Haptik-Regular";
+  src: url("../fonts/GT-Haptik-Regular.otf") format("otf"),
+    url("../fonts/GT-Haptik-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Haptik-Bold";
+  src: url("../fonts/GT-Haptik-Bold.otf") format("otf"),
+    url("../fonts/GT-Haptik-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}

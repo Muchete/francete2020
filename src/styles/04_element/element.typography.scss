@@ -1,0 +1,39 @@
+/**
+ * -----------------------------------------------------------------------
+ * page level styling for typography
+ * -----------------------------------------------------------------------
+ */
+
+html,
+body {
+  font-kerning: normal;
+  font-feature-settings: "tnum" on, "lnum" on, "salt" on;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include typo-body;
+}
+
+p + p {
+  @include spacing(top, medium);
+}
+
+em,
+strong {
+  font-style: initial;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  padding-left: 2em;
+}
+
+li {
+  list-style-position: outside;
+}

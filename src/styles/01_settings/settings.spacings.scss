@@ -1,0 +1,48 @@
+/**
+ * -----------------------------------------------------------------------
+ * spacings
+ * -----------------------------------------------------------------------
+ *
+ * Use this spacing settings for the @include spacing[s] mixin
+ *
+ */
+
+//modal
+$space-modalTB: (
+  phone: 18px,
+  tablet: 18px,
+  desktop: 46px,
+);
+
+$space-modalLR: (
+  phone: 18px,
+  tablet: 18px,
+  desktop: 35px,
+);
+
+//= LINE HEIGHT
+$space-medium: (
+  phone: 20px,
+  tablet: 20px,
+  desktop: 40px,
+);
+
+$space-small: (
+  phone: 10px,
+  tablet: 20px,
+  desktop: 20px,
+);
+
+$space-large: (
+  phone: 60px,
+  tablet: 80px,
+  desktop: 100px,
+);
+
+$spacings: (
+  small: $space-small,
+  medium: $space-medium,
+  large: $space-large,
+  modalTB: $space-modalTB,
+  modalLR: $space-modalLR,
+);

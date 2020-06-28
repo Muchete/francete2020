@@ -1,0 +1,49 @@
+$modal_border_w: 3px;
+
+.ReactModal__Overlay,
+.ReactModal__Overlay--after-open {
+  background-color: unset !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_react:focus {
+  outline: unset !important;
+}
+
+.modal {
+  @include typo-modal;
+  box-sizing: border-box;
+  width: $modal_w_default;
+  max-height: calc(100vh - 100px);
+
+  border: solid $modal_border_w $modal_color_border;
+  background-color: $modal_color_background;
+  overflow-y: scroll;
+
+  &__info {
+    background-color: $modal_color_background_info;
+  }
+
+  &__content {
+    @include spacing(top, modalTB, true);
+    @include spacing(bottom, modalTB, true);
+    @include spacing(left, modalLR, true);
+    @include spacing(right, modalLR, true);
+  }
+
+  &__text {
+    @include spacing(top, medium);
+  }
+
+  &__close {
+    padding: 0;
+    margin-bottom: $global-line-height;
+    margin: 0;
+    border: none;
+    background-color: unset;
+    text-decoration: none;
+  }
+}
