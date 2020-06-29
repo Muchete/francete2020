@@ -9,14 +9,36 @@ $modal_border_w: 3px;
   align-items: center;
 }
 
+.modal-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+}
+
+.ReactModal__Content .modal-wrap {
+  height: unset;
+  width: unset;
+}
+
 .modal_react:focus {
   outline: unset !important;
 }
 
 .modal {
+  pointer-events: auto;
   @include typo-modal;
   box-sizing: border-box;
-  width: $modal_w_default;
+  @include resp(
+    width,
+    (
+      phone: $modal_w_default,
+      tablet: 566px,
+      desktop: 1130px,
+    )
+  );
   max-height: calc(100vh - 100px);
 
   border: solid $modal_border_w $modal_color_border;

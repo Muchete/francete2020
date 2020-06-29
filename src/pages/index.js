@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => (
     <div className="showcase">
       {data.allDatoCmsWork.edges.map(({ node: work }) => (
         <div key={work.id} className="showcase__item">
-          <Link to={`/works/${work.slug}`} className="card__image">
+          <Link to={`/${work.slug}`} className="card__image">
             <Img fluid={work.coverImage.fluid} />
           </Link>
         </div>

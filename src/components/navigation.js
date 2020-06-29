@@ -8,7 +8,7 @@ class Navigation extends Component {
         <ul>
           {this.props.info && (
             <li className="nav__item info">
-              <Link to={"/works/" + this.props.info + "/info"} asModal>
+              <Link to={"/" + this.props.info + "/info"} asModal>
                 Info
               </Link>
             </li>
