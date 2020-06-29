@@ -13,8 +13,11 @@
 
   a {
     display: inline-block;
-    padding: 9px 3px;
     text-decoration: none;
+    padding: 9px 3px;
+    @include mq($from: desktop) {
+      padding: 21px 17px;
+    }
   }
 }
 
