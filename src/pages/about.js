@@ -1,14 +1,14 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import { ModalRoutingContext, Link } from "gatsby-plugin-modal-routing";
+import { ModalRoutingContext } from "gatsby-plugin-modal-routing";
 import Layout from "../components/layout";
 import Draggable from "react-draggable";
 
 const About = ({ data: { about } }) => (
   <Layout>
     <ModalRoutingContext.Consumer>
-      {({ modal, closeTo }) => (
+      {({ closeTo }) => (
         <>
           <HelmetDatoCms seo={about.seoMetaTags} />
           <Draggable>
