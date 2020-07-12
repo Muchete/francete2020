@@ -3,33 +3,41 @@ import { graphql, Link } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import { ModalRoutingContext } from "gatsby-plugin-modal-routing";
 import Layout from "../components/layout";
-import Draggable from "react-draggable";
+// import Draggable from "react-draggable";
 
 export default ({ data }) => (
   <Layout>
     <ModalRoutingContext.Consumer>
-      {({ closeTo }) => (
+      {({ modal, closeTo }) => (
         <>
           <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
-          <Draggable>
-            <div className="modal-wrap">
-              <div className="modal modal__info">
-                <div className="modal__content">
+          {/* <Draggable> */}
+          <div className="modal-wrap">
+            <div className="modal modal__info">
+              <div className="modal__content">
+                {modal ? (
                   <Link to={closeTo} className="modal__close">
                     X
                   </Link>
-                  <div
-                    className="modal__text"
-                    dangerouslySetInnerHTML={{
-                      __html:
-                        data.datoCmsWork.descriptionNode.childMarkdownRemark
-                          .html,
-                    }}
-                  />
-                </div>
+                ) : (
+                  <Link
+                    to={"/" + data.datoCmsWork.slug}
+                    className="modal__close"
+                  >
+                    X
+                  </Link>
+                )}
+                <div
+                  className="modal__text"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      data.datoCmsWork.descriptionNode.childMarkdownRemark.html,
+                  }}
+                />
               </div>
             </div>
-          </Draggable>
+          </div>
+          {/* </Draggable> */}
         </>
       )}
     </ModalRoutingContext.Consumer>
