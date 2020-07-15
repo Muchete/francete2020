@@ -10,6 +10,8 @@
 .nav__item {
   position: fixed;
   top: 0;
+  color: yellow;
+  mix-blend-mode: difference;
 
   a {
     display: inline-block;

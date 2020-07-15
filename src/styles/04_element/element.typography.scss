@@ -20,7 +20,7 @@ h6 {
 }
 
 p + p {
-  @include spacing(top, medium);
+  // @include spacing(top, medium);
 }
 
 em,

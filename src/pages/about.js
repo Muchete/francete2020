@@ -1,7 +1,7 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import { ModalRoutingContext } from "gatsby-plugin-modal-routing";
+import { ModalRoutingContext, Link } from "gatsby-plugin-modal-routing";
 import Layout from "../components/layout";
 // import Draggable from "react-draggable";
 
