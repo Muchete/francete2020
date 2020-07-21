@@ -4,7 +4,14 @@ class LoopVideo extends Component {
   render() {
     return (
       <>
-        <video className="work__content__video" autoPlay muted loop>
+        <video
+          className="work__content__video"
+          autoPlay
+          muted
+          loop
+          controls
+          poster={this.props.video.poster}
+        >
           {/* <source
             type="video/mp4"
             src={this.props.video.high}

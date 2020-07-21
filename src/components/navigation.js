@@ -6,6 +6,13 @@ class Navigation extends Component {
     return (
       <nav className="nav">
         <ul>
+          {this.props.about && (
+            <li className="nav__item about">
+              <Link to="/about" asModal>
+                About
+              </Link>
+            </li>
+          )}
           {this.props.info && (
             <li className="nav__item info">
               <Link to={"/" + this.props.info + "/info"} asModal>
@@ -16,13 +23,6 @@ class Navigation extends Component {
           {this.props.works && (
             <li className="nav__item work">
               <Link to="/">Works</Link>
-            </li>
-          )}
-          {this.props.about && (
-            <li className="nav__item about">
-              <Link to="/about" asModal>
-                About
-              </Link>
             </li>
           )}
         </ul>

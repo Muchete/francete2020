@@ -3,3 +3,33 @@
     width: 100%;
   }
 }
+
+//slider on desktop
+@include mq($from: desktop) {
+  .showcase {
+    width: 100%;
+  }
+
+  @media (pointer: fine) {
+    /* Rules for devices with trackpad here */
+
+    .showcase {
+      display: flex;
+      flex-direction: column;
+      overflow-x: auto;
+    }
+
+    .showcase__middle {
+      display: flex;
+      flex: 1;
+    }
+
+    .showcase__item {
+      flex: 0 0 100%;
+    }
+
+    .cover {
+      height: calc(100vh - #{$footerheight});
+    }
+  }
+}

@@ -1,4 +1,4 @@
-$modal_border_w: 3px;
+$modal_border_w: $border_w;
 
 .ReactModal__Overlay,
 .ReactModal__Overlay--after-open {
@@ -39,7 +39,7 @@ $modal_border_w: 3px;
       desktop: 1130px,
     )
   );
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 120px);
 
   border: solid $modal_border_w $modal_color_border;
   background-color: $modal_color_background;

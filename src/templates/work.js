@@ -15,7 +15,7 @@ export default ({ data }) => (
         if (item.video) {
           return <LoopVideo video={item.video} />;
         } else {
-          return <Img fluid={item.fluid} />;
+          return <Img sizes={item.sizes} className="work__img" />;
         }
       })}
       <Navigation about works info={data.datoCmsWork.slug} />
@@ -38,19 +38,13 @@ export const query = graphql`
           high: mp4Url(exactRes: high)
           poster: thumbnailUrl
         }
-        fluid(maxWidth: 1440, imgixParams: { fm: "jpg", auto: "compress" }) {
+        sizes(maxWidth: 2000) {
           ...GatsbyDatoCmsSizes
         }
       }
       descriptionNode {
         childMarkdownRemark {
           html
-        }
-      }
-      coverImage {
-        url
-        fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
-          ...GatsbyDatoCmsSizes
         }
       }
     }
