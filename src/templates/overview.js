@@ -4,10 +4,9 @@ import Img from "gatsby-image";
 import Layout from "../components/layout";
 import Navigation from "../components/navigation";
 import LoopVideo from "../components/loopVideo";
-import Slider from "../components/slider";
 
 export const query = graphql`
-  query IndexQuery {
+  query OverviewQuery {
     allDatoCmsWork(sort: { fields: [position], order: ASC }) {
       edges {
         node {
@@ -34,7 +33,7 @@ export const query = graphql`
   }
 `;
 
-const content = (item) => {
+export const content = (item) => {
   if (item.video) {
     return <LoopVideo video={item.video} className="cover" />;
   } else {
@@ -42,26 +41,23 @@ const content = (item) => {
   }
 };
 
-const IndexPage = ({ data }) => (
+const Overview = ({ data }) => (
   <Layout>
     <>
-      <div className="option_touch">
-        <div className="showcase">
-          <div className="showcase__middle">
-            {data.allDatoCmsWork.edges.map(({ node: work }) => (
-              <div key={work.id} className="showcase__item">
-                <Link to={`/${work.slug}`} className="card__image">
-                  {content(work.coverImage)}
-                </Link>
-              </div>
-            ))}
-          </div>
+      <div className="overview">
+        <div className="overview__middle">
+          {data.allDatoCmsWork.edges.map(({ node: work }) => (
+            <div key={work.id} className="overview__item">
+              <Link to={`/${work.slug}`} className="card__image">
+                {content(work.coverImage)}
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
-      <Slider data={data} />
-      <Navigation about index />
+      <Navigation about works />
     </>
   </Layout>
 );
 
-export default IndexPage;
+export default Overview;

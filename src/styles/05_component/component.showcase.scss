@@ -1,17 +1,31 @@
+.showcase {
+  position: relative;
+}
+
 .showcase__item {
   img {
     width: 100%;
   }
 }
 
+.option_mouse {
+  display: none;
+}
+
 //slider on desktop
 @include mq($from: desktop) {
-  .showcase {
-    width: 100%;
-  }
-
   @media (pointer: fine) {
-    /* Rules for devices with trackpad here */
+    .option_mouse {
+      display: block;
+    }
+
+    .option_touch {
+      display: none;
+    }
+
+    .showcase {
+      width: 100%;
+    }
 
     .showcase {
       display: flex;
@@ -28,7 +42,7 @@
       flex: 0 0 100%;
     }
 
-    .cover {
+    .showcase__item .cover {
       height: calc(100vh - #{$footerheight});
     }
   }

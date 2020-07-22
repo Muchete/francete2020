@@ -1,0 +1,15 @@
+.overview__middle {
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+@include mq($from: desktop) {
+  .overview__middle {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.overview__item .cover {
+  height: 100%;
+}

@@ -6,7 +6,7 @@ $border_w: 3px;
 }
 
 .nav {
-  background-color: #fff067;
+  background-color: #ffef40;
   height: $footerheight;
   box-sizing: border-box;
   display: block;
@@ -14,6 +14,7 @@ $border_w: 3px;
   border-top: black $border_w solid;
   position: fixed;
   bottom: 0;
+  cursor: url("../cursor-img/mouse.svg") 15 15, auto;
 
   ul {
     list-style-type: none;

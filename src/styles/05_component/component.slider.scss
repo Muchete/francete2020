@@ -1,0 +1,23 @@
+.controls {
+  position: absolute;
+  width: 30%;
+  top: 0;
+  bottom: 0;
+  background-color: unset;
+  border: none;
+  border-radius: 0;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+  &__left {
+    left: 0;
+    cursor: url("../cursor-img/arrowSmallLeft.svg") 0 14, auto;
+  }
+  &__right {
+    right: 0;
+    cursor: url("../cursor-img/arrowSmallRight.svg") 46 14, auto;
+  }
+}

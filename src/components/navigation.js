@@ -22,7 +22,12 @@ class Navigation extends Component {
           )}
           {this.props.works && (
             <li className="nav__item work">
-              <Link to="/">Works</Link>
+              <Link to="/">Work</Link>
+            </li>
+          )}
+          {this.props.index && (
+            <li className="nav__item index">
+              <Link to="/index-page">Index</Link>
             </li>
           )}
         </ul>

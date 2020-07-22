@@ -9,7 +9,6 @@ class LoopVideo extends Component {
           autoPlay
           muted
           loop
-          controls
           poster={this.props.video.poster}
         >
           {/* <source

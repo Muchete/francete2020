@@ -1,3 +1,11 @@
+body {
+  cursor: url("../cursor-img/mouseSmall.svg") 15 15, auto !important;
+}
+
+a {
+  cursor: url("../cursor-img/clickSmall.svg") 15 15, auto;
+}
+
 .work__content {
   img,
   .work__img {
