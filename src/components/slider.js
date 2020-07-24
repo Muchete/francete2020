@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
-import LoopVideo from "../components/loopVideo";
+import ImageHandler from "../components/image-handler";
 
 class Slider extends Component {
   constructor(props) {
@@ -10,14 +9,6 @@ class Slider extends Component {
       currentSlide: 0,
       totalSlides: this.props.data.allDatoCmsWork.edges.length - 1,
     };
-  }
-
-  content(item) {
-    if (item.video) {
-      return <LoopVideo video={item.video} className="cover" />;
-    } else {
-      return <Img sizes={item.sizes} className="cover" />;
-    }
   }
 
   setSlide(n) {
@@ -31,14 +22,13 @@ class Slider extends Component {
 
   render() {
     let Slide = () => {
-      console.log("slide: " + this.state.currentSlide);
       let work = this.props.data.allDatoCmsWork.edges[this.state.currentSlide]
         .node;
 
       return (
         <div key={work.id} className="showcase__item">
           <Link to={`/${work.slug}`} className="card__image">
-            {this.content(work.coverImage)}
+            <ImageHandler cn="cover" content={work.coverImage} />
           </Link>
         </div>
       );

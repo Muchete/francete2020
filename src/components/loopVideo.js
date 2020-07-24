@@ -1,13 +1,25 @@
 import React, { Component } from "react";
+const whitelist = [
+  "01videoprojektabgabefrancasidler11.mp4",
+  "ovum4-konvertiert.mov",
+];
 
 class LoopVideo extends Component {
+  check = (name) => {
+    if (whitelist.includes(name)) return true;
+  };
+
   render() {
+    console.log(this.props.name);
     return (
       <>
         <video
           className="work__content__video"
           autoPlay
-          muted
+          muted={!this.check(this.props.name)}
+          controls={this.check(this.props.name)}
+          controlsList="nodownload"
+          playsinline
           loop
           poster={this.props.video.poster}
         >

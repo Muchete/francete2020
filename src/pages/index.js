@@ -1,9 +1,8 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import Img from "gatsby-image";
 import Layout from "../components/layout";
 import Navigation from "../components/navigation";
-import LoopVideo from "../components/loopVideo";
+import ImageHandler from "../components/image-handler";
 import Slider from "../components/slider";
 
 export const query = graphql`
@@ -21,26 +20,16 @@ export const query = graphql`
               high: mp4Url(exactRes: high)
               poster: thumbnailUrl
             }
-            sizes(
-              maxWidth: 1600
-              imgixParams: { fm: "jpg", auto: "compress" }
-            ) {
-              ...GatsbyDatoCmsSizes
+            sizes(maxWidth: 1600) {
+              ...GatsbyDatoCmsFluid_noBase64
             }
+            url
           }
         }
       }
     }
   }
 `;
-
-const content = (item) => {
-  if (item.video) {
-    return <LoopVideo video={item.video} className="cover" />;
-  } else {
-    return <Img sizes={item.sizes} className="cover" />;
-  }
-};
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -51,7 +40,7 @@ const IndexPage = ({ data }) => (
             {data.allDatoCmsWork.edges.map(({ node: work }) => (
               <div key={work.id} className="showcase__item">
                 <Link to={`/${work.slug}`} className="card__image">
-                  {content(work.coverImage)}
+                  <ImageHandler cn="cover" content={work.coverImage} />
                 </Link>
               </div>
             ))}

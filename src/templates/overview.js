@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 import Layout from "../components/layout";
 import Navigation from "../components/navigation";
 import LoopVideo from "../components/loopVideo";
+import ImageHandler from "../components/image-handler";
 
 export const query = graphql`
   query OverviewQuery {
@@ -14,6 +15,7 @@ export const query = graphql`
           title
           slug
           coverImage {
+            url
             video {
               low: mp4Url(exactRes: low)
               medium: mp4Url(exactRes: medium)
@@ -24,7 +26,7 @@ export const query = graphql`
               maxWidth: 1600
               imgixParams: { fm: "jpg", auto: "compress" }
             ) {
-              ...GatsbyDatoCmsSizes
+              ...GatsbyDatoCmsFluid_noBase64
             }
           }
         }
@@ -49,7 +51,7 @@ const Overview = ({ data }) => (
           {data.allDatoCmsWork.edges.map(({ node: work }) => (
             <div key={work.id} className="overview__item">
               <Link to={`/${work.slug}`} className="card__image">
-                {content(work.coverImage)}
+                <ImageHandler cn="cover" content={work.coverImage} />
               </Link>
             </div>
           ))}

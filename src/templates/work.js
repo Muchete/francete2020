@@ -5,18 +5,14 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Navigation from "../components/navigation";
 import LoopVideo from "../components/loopVideo";
+import ImageHandler from "../components/image-handler";
 
 export default ({ data }) => (
   <Layout>
     <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
     <div className="work__content">
-      {/* <h1 className="sheet__title">{data.datoCmsWork.title}</h1> */}
       {data.datoCmsWork.gallery.map((item) => {
-        if (item.video) {
-          return <LoopVideo video={item.video} />;
-        } else {
-          return <Img sizes={item.sizes} className="work__img" />;
-        }
+        return <ImageHandler content={item} />;
       })}
       <Navigation about works info={data.datoCmsWork.slug} />
     </div>
@@ -32,6 +28,8 @@ export const query = graphql`
       title
       slug
       gallery {
+        filename
+        url
         video {
           low: mp4Url(exactRes: low)
           medium: mp4Url(exactRes: medium)
@@ -39,7 +37,7 @@ export const query = graphql`
           poster: thumbnailUrl
         }
         sizes(maxWidth: 2000) {
-          ...GatsbyDatoCmsSizes
+          ...GatsbyDatoCmsFluid_noBase64
         }
       }
       descriptionNode {
