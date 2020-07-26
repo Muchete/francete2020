@@ -10,7 +10,6 @@ class LoopVideo extends Component {
   };
 
   render() {
-    console.log(this.props.name);
     return (
       <>
         <video

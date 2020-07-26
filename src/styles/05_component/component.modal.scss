@@ -50,10 +50,10 @@ $modal_border_w: $border_w;
   }
 
   &__content {
-    @include spacing(top, modalTB, true);
-    @include spacing(bottom, modalTB, true);
-    @include spacing(left, modalLR, true);
-    @include spacing(right, modalLR, true);
+    @include spacing(top, modal, true);
+    @include spacing(bottom, modal, true);
+    @include spacing(left, modal, true);
+    @include spacing(right, modal, true);
   }
 
   &__text {

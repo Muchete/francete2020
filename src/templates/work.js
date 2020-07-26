@@ -14,7 +14,12 @@ export default ({ data }) => (
       {data.datoCmsWork.gallery.map((item) => {
         return <ImageHandler content={item} />;
       })}
-      <Navigation about works info={data.datoCmsWork.slug} />
+      <Navigation
+        about
+        works
+        info={data.datoCmsWork.slug}
+        showInfo={data.datoCmsWork.showInfo}
+      />
     </div>
   </Layout>
 );
@@ -40,6 +45,7 @@ export const query = graphql`
           ...GatsbyDatoCmsFluid_noBase64
         }
       }
+      showInfo
       descriptionNode {
         childMarkdownRemark {
           html

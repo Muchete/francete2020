@@ -22,10 +22,7 @@ export const query = graphql`
               high: mp4Url(exactRes: high)
               poster: thumbnailUrl
             }
-            sizes(
-              maxWidth: 1600
-              imgixParams: { fm: "jpg", auto: "compress" }
-            ) {
+            sizes(maxWidth: 1600) {
               ...GatsbyDatoCmsFluid_noBase64
             }
           }

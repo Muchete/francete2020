@@ -8,13 +8,7 @@
  */
 
 //modal
-$space-modalTB: (
-  phone: 18px,
-  tablet: 18px,
-  desktop: 46px,
-);
-
-$space-modalLR: (
+$space-modal: (
   phone: 18px,
   tablet: 18px,
   desktop: 35px,
@@ -24,7 +18,7 @@ $space-modalLR: (
 $space-medium: (
   phone: 20px,
   tablet: 20px,
-  desktop: 40px,
+  desktop: 20px,
 );
 
 $space-small: (
@@ -43,6 +37,5 @@ $spacings: (
   small: $space-small,
   medium: $space-medium,
   large: $space-large,
-  modalTB: $space-modalTB,
-  modalLR: $space-modalLR,
+  modal: $space-modal,
 );

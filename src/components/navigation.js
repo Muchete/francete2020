@@ -13,7 +13,7 @@ class Navigation extends Component {
               </Link>
             </li>
           )}
-          {this.props.info && (
+          {this.props.info && this.props.showInfo && (
             <li className="nav__item info">
               <Link to={"/" + this.props.info + "/info"} asModal>
                 Info
