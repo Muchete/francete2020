@@ -14,7 +14,6 @@ class LoopVideo extends Component {
       <>
         <video
           className="work__content__video"
-          autoPlay
           muted={!this.check(this.props.name)}
           controls={this.check(this.props.name)}
           controlsList="nodownload"

@@ -16,3 +16,8 @@ a {
     width: 100%;
   }
 }
+
+.cover__img.work-site:nth-of-type(1) {
+  height: calc(100vh - #{$footerheight});
+  flex: 0 0 100%;
+}

@@ -12,7 +12,7 @@ export default ({ data }) => (
     <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
     <div className="work__content">
       {data.datoCmsWork.gallery.map((item) => {
-        return <ImageHandler content={item} />;
+        return <ImageHandler content={item} cn="work-site" />;
       })}
       <Navigation
         about
