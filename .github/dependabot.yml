@@ -1,0 +1,4 @@
+# .github/dependabot.yml
+version: 2
+updates: []
+# this file (hopefully) disables all dependabot alerts for this repo
